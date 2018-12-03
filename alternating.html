@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body onload="draw()">
+<canvas id="sketch" width="1000" height="300">
+</canvas>
+<script>
+function draw() {
+  var sketch = document.getElementById('sketch');
+  var context = sketch.getContext("2d");
+  var dist = 40;
+
+  var num = parseInt(prompt("How many shapes should I draw?"));
+
+  for (var i=1; i<=num; i++) {
+    if (i % 2 == 1) {
+      context.fillStyle = "#FFDC5E"
+      context.beginPath();
+      context.arc(dist, 40, 20, 0, 2 * Math.PI, true);
+      context.closePath();
+      context.fill();
+      dist = dist + 30;
+    } else {
+      context.fillStyle = "#00A6A6"
+      context.fillRect(dist, 20, 40, 40);
+      dist = dist + 70;
+    }
+  }
+}
+</script>
+</body>
+</html>
